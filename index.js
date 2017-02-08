@@ -67,7 +67,11 @@ const req = https.request(options, (res) => {
 			process.exit(1);
 		}
 
-		configBranch(data.head.repo.ssh_url, data.head.ref, data.user.login);
+		if (Object.values(data.head.repo).indexOf(originUrl) > -1) {
+			console.log('TODO: checkout from origin');
+		} else {
+			configBranch(data.head.repo.ssh_url, data.head.ref, data.user.login);
+		}
 	});
 });
 
