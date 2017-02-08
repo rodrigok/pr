@@ -1,0 +1,14 @@
+{
+  "name": "pr",
+  "version": "1.0.0",
+  "description": "Checkout GitHub PRs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin" : {
+    "pr" : "./index.js"
+  },
+  "author": "Rodrigo Nascimento",
+  "license": "MIT"
+}
