@@ -18,8 +18,8 @@ if (!prNumber || isNaN(parseInt(prNumber))) {
 	process.exit(1);
 }
 
-const originUrl = execSync('git remote get-url origin');
-const originRepo = originUrl.replace('https://github.com/', '').replace(/\.git\n?$/, '');
+const originUrl = execSync('git remote get-url origin').replace('\n', '');
+const originRepo = originUrl.replace('https://github.com/', '').replace(/\.git$/, '');
 
 const options = {
 	hostname: 'api.github.com',
@@ -31,7 +31,7 @@ const options = {
 	}
 };
 
-console.log(options);
+console.log('Checking out PR #'+prNumber+' from '+originRepo);
 
 function configBranch(ssh_url, ref, login) {
 	const remotes = execSync('git remote').split('\n');
